@@ -9,28 +9,23 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: './dist',
+    contentBase: './build',
   },
   optimization: {
     splitChunks: {
-      chunks: 'async', // all
-      minSize: 100,
-      // minRemainingSize: 0,
+      chunks: 'all',
+      minSize: 30000,
       maxSize: 0,
       minChunks: 1,
       maxAsyncRequests: 6,
       maxInitialRequests: 4,
-      automaticNameDelimiter: '~',
+      automaticNameDelimiter: '-',
       automaticNameMaxLength: 30,
       cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-        },
-        default: {
+        commons: {
+          name: 'commons',
+          chunks: 'initial',
           minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
         },
       },
     },

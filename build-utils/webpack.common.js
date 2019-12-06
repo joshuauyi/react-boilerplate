@@ -46,8 +46,8 @@ module.exports = {
     }),
   ],
   output: {
-    path: path.resolve(__dirname, '../', 'dist'),
+    path: path.resolve(__dirname, '../', 'build'),
     publicPath: '/',
-    filename: '[name].[hash].js',
+    filename: '[name].[contenthash].js',
   },
 };
